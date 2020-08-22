@@ -21,7 +21,7 @@ class App extends RequestHandler[util.LinkedHashMap[String, Object], Unit] {
   private val signApplication = new SignApplication {
     override protected val signService: SignService = new SignService with SignRepositoryOnSQS {
       override protected val sqsClient: SqsClient = client
-      override protected val queueName: String = "test-sign-local"
+      override protected val queueName: String    = "test-sign-local"
     }
   }
 

@@ -30,7 +30,10 @@ val assemblySettings = Seq(
 )
 
 lazy val root = (project in file("."))
-  .aggregate(presentation)
+  .aggregate(
+    presentation,
+    graaIVM
+  )
   .settings(commonSettings: _*)
   .settings(
     commonSettings,
@@ -73,6 +76,14 @@ lazy val presentation = (project in file("modules/adapter/presentation"))
 
 lazy val helloWorld = (project in file("modules/adapter/presentation/helloworld"))
   .dependsOn(application, infraSQS)
+  .settings(commonSettings: _*)
+  .settings(assemblySettings: _*)
+  .settings(
+    libraryDependencies ++= lambdaDependencies
+  )
+
+lazy val graaIVM = (project in file("modules/adapter/presentation/graaivm"))
+  .dependsOn(application)
   .settings(commonSettings: _*)
   .settings(assemblySettings: _*)
   .settings(
