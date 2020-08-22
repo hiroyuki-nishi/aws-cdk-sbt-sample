@@ -32,4 +32,11 @@ https://docs.aws.amazon.com/ja_jp/sdk-for-java/v2/migration-guide/whats-differen
 SDK Sample Code
 https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/java/example_code
 
+------------------------
+1. GraaIVMのインストール手順
+https://www.graalvm.org/docs/getting-started-with-graalvm/macos/
+
+2. native-image変換
+
+
 

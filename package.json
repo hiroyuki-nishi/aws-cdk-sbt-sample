@@ -17,7 +17,9 @@
     "delete-stack:stepfunctions": "awslocal cloudformation delete-stack --stack-name local-stepfunctions-stack",
     "delete-stack:all": "run-s delete-stack:sqs delete-stack:dynamodb delete-stack:ecr delete-stack:lambda-helloworld delete-stack:stepfunctions delete-stack:s3 ",
     "deploy:lambda": "sbt helloWorld/assembly && cdk deploy lambda --profile gray -c env=local",
-    "deploy:ecr": "sbt -mem 2048 signConsumer/assembly && sbt signConsumer/docker:publishLocal"
+    "deploy:ecr": "sbt -mem 2048 signConsumer/assembly && sbt signConsumer/docker:publishLocal",
+    "native:graaivm": "native-image -jar ./modules/adapter/presentation/graaivm/target/scala-2.13/graaIVM.jar graaIVM",
+
   },
   "devDependencies": {
     "aws-cdk": "1.57.0",
