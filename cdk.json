@@ -1,0 +1,17 @@
+{
+  "app": "sbt --error 'set showSuccess := false' cdk/run",
+  "context": {
+    "@aws-cdk/core:enableStackNameDuplicates": "true",
+    "aws-cdk:enableDiffNoFail": "true",
+    "local": {
+      "env": "local",
+      "region": "us-east-1",
+      "account_id": "000000000000"
+    },
+    "dev": {
+      "env": "dev",
+      "region": "ap-northeast-1",
+      "account_id": "xxxxxxxxxxxxx"
+    }
+  }
+}

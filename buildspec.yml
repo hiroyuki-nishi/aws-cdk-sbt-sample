@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - TAG_VERSION = sbt image_version
+      - REPOSITORY_URI=$ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/test-sign-local
+  build:
+    commands:
+      - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com
+      - docker tag sign-consumer-sign:1.0.0 $REPOSITORY_URI:$TAG_VERSION
+      - docker push $REPOSITORY_URI:$TAG_VERSION
