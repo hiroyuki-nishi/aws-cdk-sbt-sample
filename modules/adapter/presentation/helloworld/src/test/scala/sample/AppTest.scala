@@ -2,8 +2,8 @@ package sample
 
 import java.net.URI
 
-import example.com.SignService
-import example.com.sign.{SignApplication, SignRepositoryOnSQS}
+import bootstrap.SignService
+import bootstrap.sign.{SignApplication, SignRepositoryOnSQS}
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.diagrams.Diagrams
 import org.scalatest.wordspec.AnyWordSpec

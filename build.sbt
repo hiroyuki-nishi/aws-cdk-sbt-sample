@@ -8,7 +8,7 @@ val contextName = "sign"
 
 lazy val commonSettings = Seq(
   organization := "sample",
-  scalaVersion := "2.13.3",
+  scalaVersion := "2.12.8",
   scalacOptions := Seq(
     "-deprecation",
     "-feature"

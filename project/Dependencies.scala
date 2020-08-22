@@ -19,6 +19,11 @@ object Dependencies {
     "org.scalamock" %% "scalamock" % "4.4.0" % Test
   )
 
+  lazy val SampleDependencies = Seq(
+    "com.softwaremill.sttp" %% "core" % "1.7.2",
+    "org.scalaj" %% "scalaj-http" % "2.4.2"
+  )
+
   lazy val cdkDependencies = Seq(
     "software.amazon.awscdk" % "core" % awsCdkVersion,
     "software.amazon.awscdk" % "apigateway" % awsCdkVersion,
@@ -50,5 +55,5 @@ object Dependencies {
 
   lazy val lambdaDependencies: Seq[ModuleID] = Seq(
     awsLambdaJavaCore
-  ) ++ testDependencies
+  ) ++ testDependencies ++ SampleDependencies
 }

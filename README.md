@@ -38,5 +38,14 @@ https://www.graalvm.org/docs/getting-started-with-graalvm/macos/
 
 2. native-image変換
 
+// 1. Dockerfileからイメージの作成と起動
+docker build -t graal-builder-image .
+docker run --name graal-builder -dt graal-builder-image
+
+// 2. jarをnative-imageにする
+docker cp ./modules/adapter/presentation/graaivm/target/scala-2.12/graaIVM.jar graal-builder:/hello.jar
+docker exec -it graal-builder native-image -jar hello.jar -H:EnableURLProtocols=http,https --allow-incomplete-classpath --no-server --no-fallback
+
+docker cp graal-builder:/hello ./hello/bootstrap && zip -Dj hello.zip ./hello/bootstrap
 
 

@@ -2,9 +2,9 @@ package sample
 
 import java.util
 
+import bootstrap.SignService
+import bootstrap.sign.{SignApplication, SignRepositoryOnSQS}
 import com.amazonaws.services.lambda.runtime.{Context, RequestHandler}
-import example.com.SignService
-import example.com.sign.{SignApplication, SignRepositoryOnSQS}
 import software.amazon.awssdk.regions.Region
 import software.amazon.awssdk.services.sqs.SqsClient
 

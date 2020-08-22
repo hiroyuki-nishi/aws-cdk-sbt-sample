@@ -18,8 +18,9 @@
     "delete-stack:all": "run-s delete-stack:sqs delete-stack:dynamodb delete-stack:ecr delete-stack:lambda-helloworld delete-stack:stepfunctions delete-stack:s3 ",
     "deploy:lambda": "sbt helloWorld/assembly && cdk deploy lambda --profile gray -c env=local",
     "deploy:ecr": "sbt -mem 2048 signConsumer/assembly && sbt signConsumer/docker:publishLocal",
-    "native:graaivm": "native-image -jar ./modules/adapter/presentation/graaivm/target/scala-2.13/graaIVM.jar graaIVM",
-
+    "native:graaivm": "native-image -jar ./modules/adapter/presentation/graaivm/target/scala-2.13/graaIVM.jar -H:EnableURLProtocols=http,https bootstrap",
+    "native:graaivm2": "native-image -jar ./modules/adapter/presentation/graaivm/target/scala-2.13/graaIVM.jar",
+    "zip": "cd runtime-sample && chmod 755 bootstrap libsunec.so && zip function.zip bootstrap libsunec.so"
   },
   "devDependencies": {
     "aws-cdk": "1.57.0",
